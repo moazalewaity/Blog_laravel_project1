@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\Photo;
 use App\Category;
+use Illuminate\Support\Facades\Session;
+
 
 class AdminPostsController extends Controller
 {
@@ -74,7 +76,9 @@ class AdminPostsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.post.edit');
+        $post = Post::find($id);
+        $categorys = Category::all();
+        return view('admin.post.edit' , compact(['post' , 'categorys']));
     }
 
     /**
@@ -86,7 +90,18 @@ class AdminPostsController extends Controller
      */
     public function update(PostsRequest $request, $id)
     {
-        //
+         $input = $request->all(); 
+         if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images' , $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+
+        Auth::user()->posts()->whereId($id)->first()->update($input);
+        return redirect('admin/posts');
+        
+       // return $request->all();
     }
 
     /**
@@ -97,6 +112,10 @@ class AdminPostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $post = Post::FindOrFail($id);
+        unlink(public_path() . $post->photo->file);
+        $post->delete();
+        Session::flash('delete_post' , 'The post has been deletd');
+        return redirect('admin/posts');
     }
 }

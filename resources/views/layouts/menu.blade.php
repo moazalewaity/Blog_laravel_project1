@@ -42,11 +42,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="/categories">All Categories</a>
+                                <a href="{{ route('categories.index')}}">All Categories</a>
                             </li>
 
                             <li>
-                                <a href="/categories/create">Create Category</a>
+                                <a href="{{route('categories.create')}}">Create Category</a>
                             </li>
 
                         </ul>
