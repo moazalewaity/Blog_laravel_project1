@@ -69,12 +69,14 @@
 
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+
                 <form method="post" action="{{ route('users.destroy' , $user->id) }}">
+                    @csrf
                     @method('DELETE')
                 <button type="submit" class="btn btn-danger"">Delete</button>
             </form>
             </div>
-        </form>
         @include('layouts.errors')
 
 

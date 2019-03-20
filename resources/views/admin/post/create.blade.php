@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('layouts.editor')
+
  admin/users
 
  <h1>create new Post </h1>
@@ -37,7 +39,7 @@
 
                  <div class="form-group">
                     <label for="exampleInputEmail1">Descrpition</label>
-                    <textarea rows="5" name="body"></textarea>
+                    <textarea name="body"></textarea>
 
                      </div>
 

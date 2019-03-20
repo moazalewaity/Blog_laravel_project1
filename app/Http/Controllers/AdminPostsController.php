@@ -118,4 +118,14 @@ class AdminPostsController extends Controller
         Session::flash('delete_post' , 'The post has been deletd');
         return redirect('admin/posts');
     }
+
+
+    public function post($id)
+    {
+        $post = Post::find($id);
+        $comments = $post->comments()->whereIsAcive(1)->get();
+        $Category = Category::all();
+               $categories = Category::all();
+       return view('post' , compact(['post' , 'comments' , 'Category' , 'categories']));
+    }
 }

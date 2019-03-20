@@ -16,6 +16,7 @@
         <!-- form start -->
         <form role="form" method="post" action="{{ route('categories.update' , $cat->id) }}">
             @csrf
+            @method("PATCH")
             <div class="box-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
@@ -27,12 +28,15 @@
 
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">edit new categories</button>
+                                                    </form>
+
+
                    <form method="post" action="{{ route('categories.destroy' , $cat->id) }}">
                     @method('DELETE')
-                <button type="submit" class="btn btn-danger"">Delete</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
             </form>
             </div>
-        </form>
+
         @include('layouts.errors')
 
 

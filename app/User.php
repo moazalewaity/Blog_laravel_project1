@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -49,12 +49,12 @@ class User extends Authenticatable
 
 
 
-    public function getPasswordAttribute($password)
-    {
-       if(!empty($password)){
-        $this->attribute['password'] =  bcrypt($password);
-       }
-    }
+           // public function getPasswordAttribute($password)
+           // {
+           //    if(!empty($password)){
+           //     $this->password =  bcrypt($password);
+           //    }
+           // }
 
     public function isAdmin()
     {

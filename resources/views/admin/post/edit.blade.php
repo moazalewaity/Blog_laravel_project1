@@ -55,12 +55,13 @@
 
             <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Edit Post</button>
+                        </form>
+
                   <form method="post" action="{{ route('posts.destroy' , $post->id) }}">
                     @method('DELETE')
-                <button type="submit" class="btn btn-danger"">Delete</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
             </form>
             </div>
-        </form>
         @include('layouts.errors')
 
 

@@ -242,5 +242,7 @@
 <script src="{{url('/')}}/design/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('/')}}/design/admin/dist/js/demo.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 </body>
 </html>

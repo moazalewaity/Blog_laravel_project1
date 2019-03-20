@@ -33,6 +33,10 @@
                                 <a href="{{route('posts.create')}}">Create Post</a>
                             </li>
 
+                             <li>
+                                <a href="{{route('comment.index')}}">All Comment</a>
+                            </li>
+
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -58,14 +62,22 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{ route('media.index')}}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{route('media.create')}}">Upload Media</a>
                             </li>
 
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+
+                      <li>
+                        <a href="{{url('admin/settings')}}">
+                            <i class="fa fa-cog"></i>Settings
+                        </a>
+                     </li>
+
+
 </ul>

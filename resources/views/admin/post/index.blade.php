@@ -31,7 +31,7 @@
  		<td>{{$post->category?$post->category['name']: 'Uncatgory'}}</td>
  		<td><img height="50" src="{{$post->photo? $post->photo['file'] :'not Photo'}}"></td>
  		<td><a href="{{route('posts.edit' , $post->id)}}">{{$post->title}}</a></td>
- 		<td>{{str_limit($post->body)}}</td>
+ 		<td>{{str_limit($post->body , 9)}}</td>
  		<td></td>
  	</tr>
  	@endforeach

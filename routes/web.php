@@ -11,24 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@Home');
+
+Route::get('post/{id}' ,[ 'as'=>'home.post' ,'uses'=>'AdminPostsController@post'] );
 
 
-Route::group(['middleware'=>'admin' , 'prefix'=>'admin/'] , function(){
+Route::group(['middleware'=>['admin' , 'verified'] , 'prefix'=>'admin/'] , function(){
 
-	Route::get('/' , function(){
-		return view('admin.index');
-	});
+      
+		Route::get('/' , 'AdminController@index');
+
+	Route::get('settings', 'Settings@setting')->name('settings');
+	Route::post('settings', 'Settings@setting_save')->name('settingsP');
     
 	Route::resource('users' , 'AdminUsersController');
 	Route::resource('posts' , 'AdminPostsController');
 	Route::resource('categories' , 'AdminCategoriesController');
+	Route::resource('media' , 'AdminMediasContoller');
+
+	Route::resource('comment' , 'PostCommentsContoller');
+	Route::resource('comment/replies' , 'CommentRrpliesContoller');
+	//Route::get('media/upload' , ['as'=>'admin.medai.upload' , 'uses'=>'AdminMediasContoller@upload']);
 
 });
 
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');

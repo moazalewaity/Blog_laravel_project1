@@ -25,7 +25,9 @@ class AdminCategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.index');
+                $categories = Category::all();
+
+        return view('admin.categories.index',compact('categories'));
     }
 
     /**
