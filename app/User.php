@@ -62,6 +62,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return true;
        }
     }
+    public function isUser()
+    {
+        if($this->role['name'] == 'user'  && $this->is_Active == 1){
+            return true;
+        }
+    }
 
 
      public function posts()

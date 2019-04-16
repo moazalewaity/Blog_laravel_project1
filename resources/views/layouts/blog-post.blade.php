@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Post - Start Bootstrap Template</title>
+    <title>Blog Post</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{url('/')}}/css/bootstrap.min.css" rel="stylesheet">

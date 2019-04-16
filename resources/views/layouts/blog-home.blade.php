@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home - Start Bootstrap Template</title>
+    <title>Blog Home </title>
 
     <!-- Bootstrap Core CSS -->
   <link href="{{url('/')}}/css/bootstrap.min.css" rel="stylesheet">
@@ -49,10 +49,7 @@
                         <a href="#">{{$cat->name}}</a>
                     </li>
                     @endforeach
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
+                        <li>
                         <a href="#">Contact</a>
                     </li>
                 </ul>
@@ -68,7 +65,7 @@
                     </li>
                     @else
                      <li>
-                        <a href="/admin">Admin</a>
+                        <a href="#">{{Auth::user()->name}}</a>
                     </li>
                      <li>
                          <a class="dropdown-item" href="{{ route('logout') }}"
@@ -160,7 +157,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2018</p>
+                    <p>Copyright &copy; Your Website 2019</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
