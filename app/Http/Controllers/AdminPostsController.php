@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\Photo;
 use App\Category;
+use Storage;
+use Mail;
+use \App\Mail\CreatePost;
+
+
 use Illuminate\Support\Facades\Session;
 
 
@@ -31,7 +36,6 @@ class AdminPostsController extends Controller
     public function create()
     {
         $categorys = Category::all();
-
         return view('admin.post.create' ,compact('categorys'));
     }
 
@@ -53,6 +57,9 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
         $user->posts()->create($input);
+                Storage::disk('local')->put('file.txt', $input);
+
+                Mail::to('moaz2088@gmail.com')->send(new CreatePost($input));
         return redirect('admin/posts');
        // return $request->all();
     }
